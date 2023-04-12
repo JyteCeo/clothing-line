@@ -2,7 +2,8 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, signInWithRedirect, 
   signInWithPopup, GoogleAuthProvider, 
   createUserWithEmailAndPassword ,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
+  signOut
 } from 'firebase/auth';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'
 
@@ -80,3 +81,6 @@ export const signInAuthUserWithEmailAndPassword = async (email, password) => {
 
   return await signInWithEmailAndPassword(auth, email, password);
 };
+
+// create another interface layer function for the sign_out method
+export const signOutUser = async() => await signOut(auth);
